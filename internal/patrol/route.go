@@ -1,9 +1,6 @@
 package patrol
 
 func (s *Service) RebuildRoute() {
-	if len(s.route) > 0 {
-		return
-	}
 	s.route = s.cabins.Checkpoints()
 }
 
