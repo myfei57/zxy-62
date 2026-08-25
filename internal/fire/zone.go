@@ -2,10 +2,10 @@ package fire
 
 import "sort"
 
+// ActivateZones runs the fire-linkage suppression for a fire-origin zone:
+// the source zone is activated first, then its adjacent zones are activated
+// in order of distance from nearest to farthest.
 func (s *Service) ActivateZones(source string) {
-	for _, zone := range s.adjacent(source) {
-		s.activate(zone)
-	}
 	s.activate(source)
 	for _, zone := range s.adjacent(source) {
 		s.activate(zone)
