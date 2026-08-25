@@ -8,8 +8,7 @@ type Approval struct {
 }
 
 func (s *Store) SaveApproval(approval Approval) error {
-	_ = s.Save("approval", approval.ID, approval)
-	return nil
+	return s.Save("approval", approval.ID, approval)
 }
 
 func (s *Store) LoadApproval(id string) (Approval, error) {

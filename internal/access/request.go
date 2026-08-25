@@ -48,11 +48,11 @@ func (s *Service) Grant(requestID string) (store.Approval, error) {
 		return store.Approval{}, errors.New("request not found")
 	}
 	request := s.requests[index]
-	s.requests[index].Status = "granted"
 	approval, err := s.Approve(request.CabinID, request.Requester)
 	if err != nil {
 		return store.Approval{}, err
 	}
+	s.requests[index].Status = "granted"
 	return approval, nil
 }
 
